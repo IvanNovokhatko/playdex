@@ -1,0 +1,151 @@
+/* Header */
+
+.header {
+  background-color: var(--header-background);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.logo {
+  z-index: 1;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  letter-spacing: 1.5;
+  font-size: 1.3em;
+  color: var(--dark-red);
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--darker-red);
+}
+
+.navList {
+  display: none;
+  gap: 30px;
+  list-style: none;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--darker-red);
+}
+
+.authList {
+  display: none;
+  gap: 30px;
+  list-style: none;
+}
+
+.authLink:hover, .authLink:focus {
+    color: var(--darker-red);
+}
+
+/* Burger Menu */
+
+.burgerMenuOverlay {
+  background-color: var(--header-background);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  transform: translateY(-100%);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.burgerMenuOverlay.active {
+  transform: translateY(0);
+}
+
+.burgerButton {
+  border: none;
+  width: 30px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  background-color: var(--dark-red);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burgerButton.active .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burgerButton.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerButton.active .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobileMenuContent {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  font-family: var(--font-cormorant-garamond);
+  font-weight: 500;
+  letter-spacing: 2;
+  font-size: 2em;
+  line-height: 170%;
+  color: var(--dark-red);
+}
+
+.burgerButton.active ~ .burgerMenuOverlay .mobileMenuContent {
+  transform: translateX(0%);
+  transition: transform 1.5s ease;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  justify-content: center;
+  align-items:flex-start;
+}
+
+.mobileNavList {
+  list-style: none;
+}
+
+.mobileNavLink {
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover, .mobileNavLink:focus {
+  color: var(--darker-red);
+}
+
+.mobileAuthList {
+  flex-direction: column;
+  margin-top: 70px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.mobileAuthLink {
+  transition: color 0.3s ease;
+}
+
+.mobileAuthLink:hover, .mobileAuthLink:focus {
+  color: var(--darker-red);
+}
