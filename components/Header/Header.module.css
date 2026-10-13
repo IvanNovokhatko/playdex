@@ -3,7 +3,7 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 40;
   background: rgba(15, 15, 15, 0.96);
   border-bottom: 1px solid var(--line-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -174,14 +174,18 @@
 
 .burgerMenuOverlay {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(15, 15, 15, 0.98);
   border-top: 1px solid rgba(174, 0, 0, 0.22);
   transform: translateY(-110%);
   transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 20;
+  z-index: 60;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -192,11 +196,12 @@
 
 .burgerMenuOverlay.active {
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .burgerButton {
   position: relative;
-  z-index: 30;
+  z-index: 70;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -252,6 +257,8 @@
   justify-content: center;
   min-height: 100vh;
   padding-top: 5rem;
+  padding-bottom: 2rem;
+  background: rgba(15, 15, 15, 0.98);
   transform: translateX(-12%);
   opacity: 0;
   transition: transform 0.45s ease, opacity 0.35s ease;
@@ -283,6 +290,8 @@
   flex-direction: column;
   gap: 0.8rem;
   list-style: none;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.98);
 }
 
 .mobileAuthList {
