@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono, Playfair_Display, Cormorant_Garamond } from "next/font/google";
+import 'normalize.css/normalize.css';
+import "./globals.css";
+import Header from "@/components/Header/Header";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "PlayDex",
+  description: "Your personal game library and collection tracker.",
+  icons: {
+    icon: "/icon.svg",
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}>
+      <body>
+        <Header />
+        {children}
+      </body>
+    </html>
+  );
+}
